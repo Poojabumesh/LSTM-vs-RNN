@@ -2,7 +2,6 @@
 This repository contains a Jupyter Notebook **('Final_Training_new.ipynb')** that demonstrates building and comparing **Recurrent Neural Networks (RNN)** and **Long Short-Term Memory (LSTM)** models for stock-price prediction.  
 The project focuses on predicting future prices for major tech companies **AAPL, GOOGL, MSFT** using historical daily data.
 
---
 ## 🎯 Project Overview
 The goal is to explore the effectiveness of RNN and LSTM architectures in forecasting stock prices—an inherently **non-linear** and **non-stationary** time-series problem.  
 The notebook walks through the complete ML pipeline:
@@ -14,12 +13,13 @@ The notebook walks through the complete ML pipeline:
 --
 ## 📊 Dataset
 The project utilizes historical stock data for Apple (AAPL), Google (GOOGL), and Microsoft (MSFT). The data is provided as three separate CSV files: AAPL.csv, GOOGL.csv, and MSFT.csv sourced from Yahoo Finance. These individual datasets are then combined and processed within the Final_Training_new.ipynb notebook. Each dataset contains daily stock prices (Open, High, Low, Close) and trading volumes over a significant period.
---
-### Expected format for each CSV (e.g., AAPL.csv):
 
+### Expected format for each CSV (e.g., AAPL.csv):
+```csv
 Date,Open,High,Low,Close,Adj Close,Volume
 2010-01-04,7.622500,7.660714,7.585000,7.643214,6.440331,493729600
 ...
+```
 --
 ## ✨ Key Features
 - **Data Pipeline** – reading, combining, cleaning, and scaling historical stock data  
@@ -36,7 +36,7 @@ Both models are implemented in **Keras /TensorFlow** to learn sequential depende
 |--------------|-------------|----------|
 | **Simple RNN** | `SimpleRNN → Dense` | Lightweight; captures short-term patterns |
 | **LSTM** | `LSTM → Dense` | Gated cells retain long-term context; often better for volatile series |
---
+
 ## 📈 Results and Analysis
 The notebook provides a detailed quantitative and qualitative analysis of the models' performance, highlighting their strengths and weaknesses in stock price prediction.
 
@@ -46,7 +46,7 @@ The notebook provides a detailed quantitative and qualitative analysis of the mo
   - **GOOGL**: RNN (RMSE: 3.75) vs. LSTM (RMSE: 4.57)  
 - **MSFT**: LSTM holds a slight edge (RMSE: 8.08 vs. 8.18), indicating its gating mechanisms may benefit higher volatility.
 
-### 🧪 Qualitative Assessment
+### Qualitative Assessment
 - **Lag & Smoothness** – Both models show mild lag during abrupt price reversals. Predictions are smoother, reducing over-reactivity but potentially under-capturing sharp spikes.  
 - **Over/Under-shooting** – Occasional over-shoots suggest potential for further tuning or regularization.
 
@@ -56,19 +56,14 @@ The notebook provides a detailed quantitative and qualitative analysis of the mo
 
 Ensure you have the following installed to run the notebook:
 
-- **Python** 3.x  
-- **Jupyter Notebook** or **JupyterLab**
+- Python 3.x  
+- Jupyter Notebook or JupyterLab  
 
 Required Python libraries:
 
 ```bash
 pip install pandas yfinance numpy matplotlib scikit-learn tensorflow joblib
 ```
---
-You can install these using pip:
-
-pip install pandas yfinance numpy matplotlib scikit-learn tensorflow joblib
-
 ## 🚀 How to Run Locally
 ### 1. Clone the Repository
 ```bash
