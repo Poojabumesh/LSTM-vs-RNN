@@ -68,9 +68,9 @@ pip install pandas yfinance numpy matplotlib scikit-learn tensorflow joblib
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/Poojabumesh/LSTM-vs-RNN.git
-cd LSTM-vs-RNN
+cd LSTM_vs_RNN
 ```
-(Note: Replace Poojabumesh and LSTM-vs-RNN with your actual GitHub username and repository name if different.)
+(Note: Replace Poojabumesh and LSTM_vs_RNN with your actual GitHub username and repository name if different.)
 
 ### 2. Place the Datasets
 Ensure the AAPL.csv, GOOGL.csv, and MSFT.csv files are placed in the same directory as the Final_Training_new.ipynb notebook.
