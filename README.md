@@ -1,4 +1,4 @@
-Stock Price Prediction using RNN & LSTM
+# Stock Price Prediction using RNN & LSTM
 
 Leverage historical stock data from Apple (AAPL), Google (GOOGL), and Microsoft (MSFT) to build and compare Recurrent Neural Network (RNN) and Long Short-Term Memory (LSTM) models for next-day price forecasting.
 
