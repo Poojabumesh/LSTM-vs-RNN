@@ -9,8 +9,8 @@ The notebook walks through the complete ML pipeline:
 * Data acquisition & preprocessing  
 * Model training (RNN & LSTM)  
 * Evaluation (quantitative & qualitative)  
-* Visualisation of predictions  
---
+* Visualisation of predictions
+  
 ## 📊 Dataset
 The project utilizes historical stock data for Apple (AAPL), Google (GOOGL), and Microsoft (MSFT). The data is provided as three separate CSV files: AAPL.csv, GOOGL.csv, and MSFT.csv sourced from Yahoo Finance. These individual datasets are then combined and processed within the Final_Training_new.ipynb notebook. Each dataset contains daily stock prices (Open, High, Low, Close) and trading volumes over a significant period.
 
@@ -20,7 +20,6 @@ Date,Open,High,Low,Close,Adj Close,Volume
 2010-01-04,7.622500,7.660714,7.585000,7.643214,6.440331,493729600
 ...
 ```
---
 ## ✨ Key Features
 - **Data Pipeline** – reading, combining, cleaning, and scaling historical stock data  
 - **Time-Series Sequencing** – preparing sliding-window sequences for RNN/LSTM input  
@@ -28,7 +27,7 @@ Date,Open,High,Low,Close,Adj Close,Volume
 - **Performance Evaluation** – quantitative (**RMSE**, **MAE**) and qualitative assessment of predictions  
 - **Comparative Analysis** – benchmarking **RNN vs LSTM** across different stock tickers  
 - **Interactive Visualizations** – plotting actual vs predicted prices for clear insight
---
+
 ## 🧠 Model Architectures
 Both models are implemented in **Keras /TensorFlow** to learn sequential dependencies in stock-price data.
 
