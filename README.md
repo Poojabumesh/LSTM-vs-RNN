@@ -151,5 +151,8 @@ File Structure
 Contributing
 Feel free to open issues or submit pull requests if you have suggestions for improvements, bug fixes, or new features.
 
+License
+This project is open-sourced under the MIT License.
+
 Contact
 For any questions or collaborations, please reach out to poojabumesh@gmail.com / https://www.linkedin.com/in/pooja-baraluumesh.
