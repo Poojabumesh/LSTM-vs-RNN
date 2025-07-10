@@ -1,143 +1,115 @@
-# Stock Price Prediction using RNN & LSTM
+📈 Stock Price Prediction using Recurrent Neural Networks (RNN & LSTM)
+This repository contains a Jupyter Notebook (Final_Training_new.ipynb) that demonstrates building and comparing Recurrent Neural Networks (RNN) and Long Short-Term Memory (LSTM) models for stock price prediction. The project focuses on predicting future stock prices for major tech companies (AAPL, GOOGL, MSFT) using historical daily data.
 
-Leverage historical stock data from Apple (AAPL), Google (GOOGL), and Microsoft (MSFT) to build and compare Recurrent Neural Network (RNN) and Long Short-Term Memory (LSTM) models for next-day price forecasting.
+🎯 Project Overview
+The goal of this project is to explore the effectiveness of RNN and LSTM neural networks in forecasting stock prices. Stock price prediction is a challenging time-series problem due to its non-linear and non-stationary nature. This notebook covers the entire machine learning pipeline, from data acquisition and preprocessing to model training, evaluation, and visualization of predictions.
 
-⸻
+📊 Dataset
+The project utilizes historical stock data for Apple (AAPL), Google (GOOGL), and Microsoft (MSFT). The data is provided as three separate CSV files: AAPL.csv, GOOGL.csv, and MSFT.csv sourced from Yahoo Finance. These individual datasets are then combined and processed within the Final_Training_new.ipynb notebook. Each dataset contains daily stock prices (Open, High, Low, Close) and trading volumes over a significant period.
 
-Table of Contents
-	•	Project Overview
-	•	Dataset
-	•	Key Features
-	•	Data Loading & Preprocessing
-	•	Model Development
-	•	Evaluation & Visualization
-	•	Comparative Analysis
-	•	Model Architectures
-	•	Results and Analysis
-	•	Quantitative Assessment
-	•	Qualitative Assessment
-	•	Prerequisites
-	•	How to Run
-	•	File Structure
-	•	Contributing
-	•	License
-	•	Contact
+Expected format for each CSV (e.g., AAPL.csv):
 
-⸻
+Date,Open,High,Low,Close,Adj Close,Volume
+2010-01-04,7.622500,7.660714,7.585000,7.643214,6.440331,493729600
+...
 
-Project Overview
+✨ Key Features
+Data Pipeline: Reading, combining, cleaning, and scaling historical stock data.
 
-Time-series forecasting of stock prices is a challenging problem due to non-linearity and market noise. This notebook walks through the full pipeline—data acquisition, cleaning, feature scaling, RNN/LSTM model training, evaluation, and visualization—to predict the next-day closing price of major tech stocks.
+Time-Series Sequencing: Preparing data for RNN/LSTM input.
 
-Dataset
+Model Development: Implementation of Simple RNN and LSTM neural networks.
 
-Three CSV files sourced from Yahoo Finance:
-	•	AAPL.csv — Apple daily OHLC and volume
-	•	GOOGL.csv — Google daily OHLC and volume
-	•	MSFT.csv — Microsoft daily OHLC and volume
+Performance Evaluation: Quantitative (RMSE, MAE) and qualitative assessment of predictions.
 
-Each file follows this schema:
+Comparative Analysis: Benchmarking RNN vs. LSTM performance across different stock tickers.
 
-Column	Description
-Date	YYYY-MM-DD
-Open	Opening price
-High	Daily high
-Low	Daily low
-Close	Closing price
-Adj Close	Adjusted closing price
-Volume	Shares traded
+Interactive Visualizations: Plotting actual vs. predicted prices for clear insights.
 
-Key Features
+🧠 Model Architectures
+Both RNN and LSTM models are built using Keras (part of TensorFlow), designed to learn sequential dependencies in stock price data.
 
-Data Loading & Preprocessing
-	•	Read and merge multiple CSVs into one DataFrame
-	•	Handle multi-level headers and rename for clarity
-	•	Convert Date to datetime and numeric columns to float/int
-	•	Apply Min–Max scaling to features
-	•	Generate sliding-window sequences for time-series input
+Simple RNN: A basic recurrent neural network layer followed by dense layers.
 
-Model Development
-	•	Simple RNN: Single recurrent layer + dense output
-	•	LSTM: One or more LSTM layers for long-term dependency capture
-	•	Implemented in Keras (TensorFlow backend)
-	•	Trained on historical windows to predict next-day close
+LSTM: Utilizes LSTM layers, known for better capturing long-term dependencies, making them often more suitable for time-series forecasting.
 
-Evaluation & Visualization
-	•	Metrics: Root Mean Squared Error (RMSE), Mean Absolute Error (MAE)
-	•	Plot actual vs. predicted prices for visual inspection
+📈 Results and Analysis
+The notebook provides a detailed quantitative and qualitative analysis of the models' performance, highlighting their strengths and weaknesses in stock price prediction.
 
-Comparative Analysis
-	•	Benchmark RNN vs. LSTM on AAPL, GOOGL, and MSFT
-	•	Assess prediction lag, smoothness, and spike capture
+Quantitative Assessment (RMSE & MAE):
 
-Model Architectures
-	1.	Simple RNN
-	•	Input → RNN layer → Dense(output)
-	2.	LSTM
-	•	Input → LSTM layer(s) → Dense(output)
+AAPL & GOOGL: Simple RNN slightly outperforms LSTM, suggesting its sufficiency for short-term dependencies in these tickers.
 
-Both use Mean Squared Error loss, Adam optimizer, and early stopping on validation loss.
+AAPL: RNN (RMSE: 5.47) vs. LSTM (RMSE: 5.62)
 
-Results and Analysis
+GOOGL: RNN (RMSE: 3.75) vs. LSTM (RMSE: 4.57)
 
-Quantitative Assessment
+MSFT: LSTM holds a slight edge (RMSE: 8.08 vs. 8.18), indicating its gating mechanisms may benefit higher volatility.
 
-Ticker	Model	RMSE	MAE
-AAPL	RNN	5.47	4.12
-AAPL	LSTM	5.62	4.18
-GOOGL	RNN	3.75	2.34
-GOOGL	LSTM	4.57	3.07
-MSFT	RNN	8.18	6.50
-MSFT	LSTM	8.08	6.48
+Qualitative Assessment:
 
-Qualitative Assessment
-	•	Lag: Both models lag when price trends reverse abruptly.
-	•	Smoothness: Predictions are generally smoother than ground truth, reducing over-reactivity to spikes.
-	•	Spike handling: Occasional overshoot/undershoot suggests hyperparameter or sequence-length tuning.
+Lag & Smoothness: Both models show mild lag during abrupt price reversals. Predictions are smoother, reducing over-reactivity but potentially under-capturing sharp spikes.
 
-Prerequisites
-	•	Python 3.x
-	•	Jupyter Notebook or JupyterLab
+Over/Under-shooting: Occasional over-shoots suggest potential for further tuning or regularization.
 
-Required libraries:
+🛠️ Prerequisites
+Ensure you have the following installed to run the notebook:
+
+Python 3.x
+
+Jupyter Notebook or JupyterLab
+
+Required Python libraries:
+
+pandas
+
+yfinance (for initial data acquisition, if not using provided CSVs)
+
+numpy
+
+matplotlib
+
+scikit-learn
+
+keras (or tensorflow which includes Keras)
+
+joblib
+
+You can install these using pip:
 
 pip install pandas yfinance numpy matplotlib scikit-learn tensorflow joblib
 
-How to Run
-	1.	Clone repository:
-
-
-
-
-
+🚀 How to Run Locally
+1. Clone the Repository
 git clone https://github.com/Poojabumesh/LSTM-vs-RNN.git
 cd LSTM-vs-RNN
 
-2. **Place CSV files** next to `Final_Training_new.ipynb`:
-   - `AAPL.csv`, `GOOGL.csv`, `MSFT.csv`
-3. **Launch notebook**:
-   ```bash
+(Note: Replace Poojabumesh and LSTM-vs-RNN with your actual GitHub username and repository name if different.)
+
+2. Place the Datasets
+Ensure the AAPL.csv, GOOGL.csv, and MSFT.csv files are placed in the same directory as the Final_Training_new.ipynb notebook.
+
+3. Open the Jupyter Notebook
 jupyter notebook Final_Training_new.ipynb
 
-	4.	Execute cells sequentially to reproduce training, evaluation, and plots.
+This will open the notebook in your web browser.
 
-File Structure
+4. Run All Cells
+Execute all cells in the notebook sequentially to reproduce the analysis, model training, and visualizations.
 
-LSTM-vs-RNN/
-├── Final_Training_new.ipynb   # Jupyter Notebook with code & analysis
-├── AAPL.csv                   # Apple historical data
-├── GOOGL.csv                  # Google historical data
-├── MSFT.csv                   # Microsoft historical data
-└── README.md                  # This file
+📂 File Structure
+.
+├── Final_Training_new.ipynb  # Main Jupyter Notebook with code and analysis
+├── AAPL.csv                  # Historical stock data for Apple
+├── GOOGL.csv                 # Historical stock data for Google
+├── MSFT.csv                  # Historical stock data for Microsoft
+└── README.md                 # This file
 
-Contributing
+👋 Contributing
+Feel free to open issues or submit pull requests if you have suggestions for improvements, bug fixes, or new features.
 
-Contributions, issues, and pull requests are welcome. Feel free to improve code, add features, or fix bugs.
+📄 License
+This project is open-sourced under the MIT License.
 
-License
-
-This project is licensed under the MIT License. See LICENSE for details.
-
-Contact
-	•	Email: poojabumesh@gmail.com
-	•	LinkedIn: https://www.linkedin.com/in/pooja-baraluumesh
+📧 Contact
+For any questions or collaborations, please reach out to poojabumesh@gmail.com or connect on LinkedIn.
